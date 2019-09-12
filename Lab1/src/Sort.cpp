@@ -25,7 +25,6 @@ void Sort::Loading(string FileName){
          inputfile >> temp;
          NumberList.push_back(temp);                 // Read File
      }
-     NumberList.pop_back();                        // Pop the last blank space
      inputfile.close();
      
 }
@@ -49,8 +48,8 @@ void Sort::Execute(){
         auto t1 = chrono::high_resolution_clock::now();
         pointer->Implement(NumberList);                                    // Sorting
         auto t2 = chrono::high_resolution_clock::now();
-        result = chrono::duration<double, milli>(t2-t1).count();
-        }
+        result = chrono::duration<double, milli>(t2-t1).count();  // high_solution_clock reference:
+        }                                                         // http://www.cplusplus.com/reference/chrono/high_resolution_clock/now/
 }
 
 void Sort::Display(){

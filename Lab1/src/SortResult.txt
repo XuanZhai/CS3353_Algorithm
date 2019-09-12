@@ -1,96 +1,96 @@
-File Size: 1000
-Bubble Sort for Random File took 21.0194ms
-File Size: 1000
-Insertion Sort for Random File took 8.0075ms
-File Size: 1000
-Merge Sort for Random File took 3.0031ms
-File Size: 1000
-Bubble Sort for Reversed File took 28.0255ms
-File Size: 1000
-Insertion Sort for Reversed File took 17.0156ms
-File Size: 1000
-Merge Sort for Reversed File took 2.002ms
-File Size: 1000
-Bubble Sort for Unique File took 20.0184ms
-File Size: 1000
-Insertion Sort for Unique File took 12.011ms
-File Size: 1000
-Merge Sort for Unique File took 2.002ms
-File Size: 1000
-Bubble Sort for Partial Sorted File took 13.0111ms
-File Size: 1000
-Insertion Sort for Partial Sorted File took 1.0007ms
-File Size: 1000
-Merge Sort for Partial Sorted File took 2.0027ms
 File Size: 10
 Bubble Sort for Random File took 0ms
+File Size: 1000
+Bubble Sort for Random File took 21.0188ms
+File Size: 10000
+Bubble Sort for Random File took 2096.35ms
+File Size: 100000
+Bubble Sort for Random File took 209213ms
 File Size: 10
 Insertion Sort for Random File took 0ms
+File Size: 1000
+Insertion Sort for Random File took 9.0077ms
+File Size: 10000
+Insertion Sort for Random File took 874.307ms
+File Size: 100000
+Insertion Sort for Random File took 87310.7ms
 File Size: 10
 Merge Sort for Random File took 0ms
+File Size: 1000
+Merge Sort for Random File took 2.0092ms
+File Size: 10000
+Merge Sort for Random File took 24.0223ms
+File Size: 100000
+Merge Sort for Random File took 255.142ms
 File Size: 10
 Bubble Sort for Reversed File took 0ms
+File Size: 1000
+Bubble Sort for Reversed File took 29.0151ms
+File Size: 10000
+Bubble Sort for Reversed File took 2846.67ms
+File Size: 100000
+Bubble Sort for Reversed File took 283142ms
 File Size: 10
-Insertion Sort for Reversed File took 1.0013ms
+Insertion Sort for Reversed File took 0ms
+File Size: 1000
+Insertion Sort for Reversed File took 18.0073ms
+File Size: 10000
+Insertion Sort for Reversed File took 1739.71ms
+File Size: 100000
+Insertion Sort for Reversed File took 174627ms
 File Size: 10
 Merge Sort for Reversed File took 0ms
-File Size: 10
-Bubble Sort for Unique File took 0ms
-File Size: 10
-Insertion Sort for Unique File took 0ms
-File Size: 10
-Merge Sort for Unique File took 0ms
-File Size: 10
-Bubble Sort for Partial Sorted File took 0ms
-File Size: 10
-Insertion Sort for Partial Sorted File took 0ms
-File Size: 10
-Merge Sort for Partial Sorted File took 0ms
+File Size: 1000
+Merge Sort for Reversed File took 2.0013ms
 File Size: 10000
-Bubble Sort for Random File took 2098.6ms
-File Size: 10000
-Insertion Sort for Random File took 868.075ms
-File Size: 10000
-Merge Sort for Random File took 24.0215ms
-File Size: 10000
-Bubble Sort for Reversed File took 2812.15ms
-File Size: 10000
-Insertion Sort for Reversed File took 1766.36ms
-File Size: 10000
-Merge Sort for Reversed File took 22.0206ms
-File Size: 10000
-Bubble Sort for Unique File took 2147.46ms
-File Size: 10000
-Insertion Sort for Unique File took 872.82ms
-File Size: 10000
-Merge Sort for Unique File took 23.0154ms
-File Size: 10000
-Bubble Sort for Partial Sorted File took 1195.89ms
-File Size: 10000
-Insertion Sort for Partial Sorted File took 11.0098ms
-File Size: 10000
-Merge Sort for Partial Sorted File took 22.0202ms
-File Size: 100000
-Bubble Sort for Random File took 210576ms
-File Size: 100000
-Insertion Sort for Random File took 87842.6ms
-File Size: 100000
-Merge Sort for Random File took 258.787ms
-File Size: 100000
-Bubble Sort for Reversed File took 281198ms
-File Size: 100000
-Insertion Sort for Reversed File took 175555ms
+Merge Sort for Reversed File took 21.019ms
 File Size: 100000
 Merge Sort for Reversed File took 233.212ms
+File Size: 10
+Bubble Sort for Unique File took 0ms
+File Size: 1000
+Bubble Sort for Unique File took 21.0188ms
+File Size: 10000
+Bubble Sort for Unique File took 2092.36ms
 File Size: 100000
-Bubble Sort for Unique File took 209360ms
+Bubble Sort for Unique File took 208180ms
+File Size: 10
+Insertion Sort for Unique File took 0ms
+File Size: 1000
+Insertion Sort for Unique File took 9.0079ms
+File Size: 10000
+Insertion Sort for Unique File took 870.262ms
 File Size: 100000
-Insertion Sort for Unique File took 85909.6ms
+Insertion Sort for Unique File took 87065.8ms
+File Size: 10
+Merge Sort for Unique File took 0ms
+File Size: 1000
+Merge Sort for Unique File took 1.9921ms
+File Size: 10000
+Merge Sort for Unique File took 23.0207ms
 File Size: 100000
-Merge Sort for Unique File took 258.257ms
+Merge Sort for Unique File took 256.246ms
+File Size: 10
+Bubble Sort for Partial Sorted File took 0ms
+File Size: 1000
+Bubble Sort for Partial Sorted File took 21.0187ms
+File Size: 10000
+Bubble Sort for Partial Sorted File took 1761.71ms
 File Size: 100000
-Bubble Sort for Partial Sorted File took 119869ms
+Bubble Sort for Partial Sorted File took 176406ms
+File Size: 10
+Insertion Sort for Partial Sorted File took 0ms
+File Size: 1000
+Insertion Sort for Partial Sorted File took 5.9957ms
+File Size: 10000
+Insertion Sort for Partial Sorted File took 575.534ms
 File Size: 100000
-Insertion Sort for Partial Sorted File took 177.151ms
+Insertion Sort for Partial Sorted File took 57799.1ms
+File Size: 10
+Merge Sort for Partial Sorted File took 0ms
+File Size: 1000
+Merge Sort for Partial Sorted File took 1.9919ms
+File Size: 10000
+Merge Sort for Partial Sorted File took 23.0209ms
 File Size: 100000
-Merge Sort for Partial Sorted File took 240.236ms
+Merge Sort for Partial Sorted File took 243.221ms
