@@ -12,8 +12,8 @@ int main(int argc, char* argv[]){
         for(int k = 0; k < 4; k++){
            Sort newSort(i,j);                                                // Create a object
            string namelist = "MakeData/List " + to_string(k) + "-" + to_string(i) + ".txt";    // We can set the data size we want to sort
-           newSort.Loading(namelist);                            // Please set the size of data before running the code
-           newSort.Execute();                 // 0 is 10 numbers, 1 is 1000 numbers, 2 is 10000 numbers, 3 is 100000 numbers
+           newSort.Loading(namelist);                          
+           newSort.Execute();                 
            newSort.Display();
            newSort.Stats();
            newSort.Save(namelist);
