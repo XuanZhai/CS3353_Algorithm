@@ -5,7 +5,7 @@ using namespace std;
 
 
 Dijkstra::Dijkstra(/* args */){}
-
+      // Reference : https://www.tutorialspoint.com/cplusplus-program-for-dijkstra-s-shortest-path-algorithm
 
 
 void Dijkstra::ImplementList(int StartPoint,int EndPoint){
@@ -16,7 +16,7 @@ void Dijkstra::ImplementList(int StartPoint,int EndPoint){
         int cost[n][n], distancess[n], pred[n];
         int visited[n], count, mindistance, nextnode, i, j;
 
-        auto Start = chrono::high_resolution_clock::now();
+        auto Start = chrono::high_resolution_clock::now();  //High_resolution_close reference: http://www.cplusplus.com/reference/chrono/high_resolution_clock/now/
 
         for(i = 0; i < n; i++)
            for(j = 0; j < n; j++)

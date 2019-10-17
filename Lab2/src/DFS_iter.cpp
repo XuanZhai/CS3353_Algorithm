@@ -15,7 +15,7 @@ void DFS_iter::ImplementList(int StartPoint ,int EndPoint){
     StoredPath.clear();
     StoredExploredPath.clear();
 
-     auto Start = chrono::high_resolution_clock::now();
+     auto Start = chrono::high_resolution_clock::now();   //High_resolution_close reference: http://www.cplusplus.com/reference/chrono/high_resolution_clock/now/
      vector<int> Path;
      stack<vector<int>> newque; 
 

@@ -7,6 +7,8 @@ using namespace std;
 
 A_star::A_star(/* args */){}  // Similar to Dijkstra but we use distance instead of cost
 
+      //Reference: https://www.tutorialspoint.com/cplusplus-program-for-dijkstra-s-shortest-path-algorithm 
+
 void A_star::ImplementList(int StartPoint,int EndPoint){
         StoredPath.clear();
         StoredExploredPath.clear();
@@ -15,7 +17,7 @@ void A_star::ImplementList(int StartPoint,int EndPoint){
         int cost[n][n],distance[n],pred[n];
         int visited[n],count,mindistance,nextnode;
         
-        auto Start = chrono::high_resolution_clock::now();
+        auto Start = chrono::high_resolution_clock::now(); //High_resolution_close reference: http://www.cplusplus.com/reference/chrono/high_resolution_clock/now/
 
     for(int i = 0; i < n; i++)
       for(int j = 0;j < n; j++)

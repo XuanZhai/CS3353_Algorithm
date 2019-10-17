@@ -13,7 +13,7 @@ void BFS_recu::ImplementList(int StartPoint,int EndPoint){
     StoredExploredPath.clear();
     vector<int> tempExploredList;
 
-     auto Start = chrono::high_resolution_clock::now();
+     auto Start = chrono::high_resolution_clock::now(); //High_resolution_close reference: http://www.cplusplus.com/reference/chrono/high_resolution_clock/now/
      bool visit[GraphSize]; 
      int path[GraphSize];
      int index = 0;
