@@ -15,14 +15,14 @@
 class Search: public Algorithm
 {
 private:
-    int FileType;
+    int FileType;            // List or Matrix
     bool ChangeFile;
     std::string GraphName;
     std::string AlgorithmName;
     int BeginPoint;
     int EndPoint;
 
-    std::vector<std::vector<double>> ListSummaryTable;
+    std::vector<std::vector<double>> ListSummaryTable;     // Stored the average data
     std::vector<std::vector<double>> MatrixSummaryTable;
     std::vector<std::vector<int>> Graph;
     std::vector<std::vector<double>> WeightGraph;

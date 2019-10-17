@@ -11,8 +11,8 @@ using namespace std;
 
 Search::Search(){
     FileType = 3;
-    AlgorithmName = "BFS-Iterative";
-    newBase = new BFS_iter();
+    AlgorithmName = "BFS-Recursive";          // We set the first algorithm
+    newBase = new BFS_recu();
     GraphName = "NULL";
 
     vector<double> temptable;
@@ -30,7 +30,7 @@ void Search::Load(int ListOrMatrix,std::vector<std::vector<int>>& inputGraph, st
     Graph = inputGraph;
     FileType = ListOrMatrix;
     WeightGraph = inputWeight;
-    DistanceGraph = inputDistance;
+    DistanceGraph = inputDistance;  // Load Graphes an Graph type
     
 }
 
@@ -43,7 +43,7 @@ void Search::Execute(int src, int dest){
     if(FileType == 0){
         GraphName = "List";
         newBase->SetGraph(Graph);
-        newBase->SetWeight(WeightGraph);
+        newBase->SetWeight(WeightGraph);               // Pass graphes to the SearchBase
         newBase->SetDistance(DistanceGraph);
         newBase->ImplementList(src, dest);
         newBase->FillSummaryTable(ListSummaryTable, AlgorithmName);
@@ -53,7 +53,7 @@ void Search::Execute(int src, int dest){
         newBase->SetGraph(Graph);
         newBase->SetWeight(WeightGraph);
         newBase->SetDistance(DistanceGraph);
-        newBase->ImplementMatrix(src, dest);   
+        newBase->ImplementMatrix(src, dest);       // We have an implementlist and an implementmatrix
         newBase->FillSummaryTable(MatrixSummaryTable, AlgorithmName); 
     }
     else{
@@ -74,10 +74,10 @@ void Search::Stats(){
     cout << "Search from " << BeginPoint << " to " << EndPoint << endl;
     newBase->FindCostOfPath();
     newBase->FindDistanceOfPath();
-    newBase->PrintPathData();
+    newBase->PrintPathData();        // Show result to the screen
 }
 
- //"SortResult.txt",ios_base::app
+
 void Search::Save(){
     ofstream outfile("OutPutData.txt");
     if(!outfile){
@@ -87,7 +87,7 @@ void Search::Save(){
     outfile << "List" << endl;
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 6; j++){
-            outfile << ListSummaryTable.at(i).at(j) << " ";
+            outfile << ListSummaryTable.at(i).at(j)/100 << " ";   // Save list's normalized data
         }
         outfile << endl;
     }
@@ -95,7 +95,7 @@ void Search::Save(){
     outfile << "Matrix" << endl;
     for(int i = 0; i < 5; i++){
         for(int j = 0; j < 6; j++){
-            outfile << MatrixSummaryTable.at(i).at(j) << " ";
+            outfile << MatrixSummaryTable.at(i).at(j)/100 << " ";     // Save matrix's normalized data
         }
         outfile << endl;
     }
@@ -110,11 +110,11 @@ void Search::Select(int SearchAl){
     case 0:{
         delete newBase;
         newBase = new Dijkstra();
-        AlgorithmName = "Dijkstra";
+        AlgorithmName = "Dijkstra";   // Use an integer to change algorith,
         break;
     }
     case 1:{
-        delete newBase;
+        delete newBase;               // Using delete to release the memory
         newBase = new A_star();
         AlgorithmName = "A_Star";
         break;
@@ -133,8 +133,8 @@ void Search::Select(int SearchAl){
     }
     case 4:{
         delete newBase;
-        newBase = new BFS_recu();
-        AlgorithmName = "BFS-Recursive";
+        newBase = new BFS_iter();
+        AlgorithmName = "BFS-iterative";
         break;
     }
     case 5:{

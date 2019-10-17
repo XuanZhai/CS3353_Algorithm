@@ -14,11 +14,10 @@ void BFS_iter::ImplementList(int StartPoint ,int EndPoint){
 
     
     RunTime = 0;
-    PathFounded = 0;
     StoredPath.clear();
     StoredExploredPath.clear();
 
-    // auto t1 = chrono::high_resolution_clock::now();
+     auto Start = chrono::high_resolution_clock::now();
 
      queue<vector<int>> newque; 
      vector<int> Path;
@@ -30,13 +29,12 @@ void BFS_iter::ImplementList(int StartPoint ,int EndPoint){
 
         newque.pop(); 
         int EndPath = Path.at(Path.size() - 1); 
-       // StoredExploredPath.push_back(EndPath);
+        StoredExploredPath.push_back(EndPath);
 
         if(EndPath == EndPoint){
             StoredPath = Path;
-            PathFounded++;
-        //    auto t2 = chrono::high_resolution_clock::now();
-          //  RunTime = chrono::duration<double, nano>(t2-t1).count();  // high_solution_clock reference:     
+            auto End = chrono::high_resolution_clock::now();
+            RunTime = chrono::duration<double>(End-Start).count();  // high_solution_clock reference:     
             return;
         }
 
@@ -63,11 +61,10 @@ bool BFS_iter::FindVisit(int target, vector<int>& path){
 void BFS_iter::ImplementMatrix(int StartPoint ,int EndPoint){
 
     RunTime = 0;
-    PathFounded = 0;
     StoredPath.clear();
     StoredExploredPath.clear();
 
-    auto t1 = chrono::high_resolution_clock::now();
+    auto Start = chrono::high_resolution_clock::now();
     vector<int> Path;
     queue<vector<int>> newque; 
 
@@ -87,9 +84,8 @@ void BFS_iter::ImplementMatrix(int StartPoint ,int EndPoint){
             temp.push_back(Path.at(i));
 
             StoredPath = temp;
-            PathFounded++;
-            auto t2 = chrono::high_resolution_clock::now();
-            RunTime = chrono::duration<double>(t2-t1).count();  // high_solution_clock reference:
+            auto End = chrono::high_resolution_clock::now();
+            RunTime = chrono::duration<double>(End - Start).count();  // high_solution_clock reference:
             return;
         }
         for(int j = 0; j < Graph.at(EndPath).size(); j++){

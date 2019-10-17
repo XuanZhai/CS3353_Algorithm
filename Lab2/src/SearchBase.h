@@ -24,7 +24,6 @@
     float RunTime;
     double DistanceOfPath;
     int GraphSize;
-    int PathFounded;
 
      SearchBase();
      virtual void ImplementList(int,int) = 0;  

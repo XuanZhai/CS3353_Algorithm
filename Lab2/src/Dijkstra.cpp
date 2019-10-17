@@ -21,7 +21,7 @@ void Dijkstra::ImplementList(int StartPoint,int EndPoint){
         for(i = 0; i < n; i++)
            for(j = 0; j < n; j++)
               if(Weight.at(i).at(j) == 0)
-                cost[i][j] = 1000000;
+                cost[i][j] = 1000000;         // Set the available max number
               else
                 cost[i][j] = Weight.at(i).at(j);
 

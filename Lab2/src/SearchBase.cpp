@@ -32,7 +32,7 @@ using namespace std;
     void SearchBase::PrintPathData(){
             cout << "Returned Path: ";
             for(int i = 0; i < StoredPath.size(); i++){
-                cout << StoredPath.at(i) << " ";
+                cout << StoredPath.at(i) << " ";            
             }
             cout << "\nNumber of nodes in returned path: " << StoredPath.size() << endl;
             cout << "Total Cost of path: " << CostOfPath << endl;
@@ -51,7 +51,7 @@ using namespace std;
                 temp = Weight.at(StoredPath.at(j)).at(StoredPath.at(j + 1));
                 total = total + temp; 
             }
-            CostOfPath = total;
+            CostOfPath = total;      // Find the total cost of the path
     }
 
 
@@ -63,7 +63,7 @@ using namespace std;
                 temp = Distance.at(StoredPath.at(j)).at(StoredPath.at(j + 1));
                 total = total + temp; 
             }
-            DistanceOfPath = total;
+            DistanceOfPath = total;   // Find the total distance 
     }
 
 
@@ -73,7 +73,7 @@ using namespace std;
              SummaryTable.at(1).at(0) = SummaryTable.at(1).at(0) + StoredExploredPath.size();
              SummaryTable.at(2).at(0) = SummaryTable.at(2).at(0) + RunTime;
              SummaryTable.at(3).at(0) = SummaryTable.at(3).at(0) + DistanceOfPath;
-             SummaryTable.at(4).at(0) = SummaryTable.at(4).at(0) + CostOfPath;
+             SummaryTable.at(4).at(0) = SummaryTable.at(4).at(0) + CostOfPath;   // Normalized the data
         }
         else if(SearchAlgo == "DFS-Recursive"){
              SummaryTable.at(0).at(1) = SummaryTable.at(0).at(1) + StoredPath.size();

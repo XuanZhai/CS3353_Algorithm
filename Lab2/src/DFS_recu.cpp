@@ -9,8 +9,7 @@ DFS_recu::DFS_recu(/* args */){}
 
 void DFS_recu::ImplementList(int StartPoint,int EndPoint){
     
-   //RunTime = 0;
-    PathFounded = 0;
+    
     StoredPath.clear();
     StoredExploredPath.clear();
     vector<int> tempExploredList;
@@ -43,7 +42,6 @@ void DFS_recu::GetListPaths(int src, int dest, bool visited[], int path[], int& 
             temp.push_back(path[i]);
             StoredPath = temp;   
             StoredExploredPath = tempExploredList;
-            PathFounded++;
     } 
 
 
@@ -63,8 +61,6 @@ void DFS_recu::GetListPaths(int src, int dest, bool visited[], int path[], int& 
 
 void DFS_recu::ImplementMatrix(int StartPoint,int EndPoint){
 
-         //RunTime = 0;
-         PathFounded = 0;
          vector<int> tempExploredList;
          StoredPath.clear();
          StoredExploredPath.clear();
@@ -97,7 +93,6 @@ void DFS_recu::GetMatrixPaths(int src, int dest, bool visited[], int path[], int
       temp.push_back(path[i]);
       StoredPath = temp; 
       StoredExploredPath = tempExploredList;
-      PathFounded++;  
     } 
 
      else { 

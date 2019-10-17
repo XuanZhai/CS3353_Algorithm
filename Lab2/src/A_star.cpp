@@ -5,7 +5,7 @@
 using namespace std;
 
 
-A_star::A_star(/* args */){}
+A_star::A_star(/* args */){}  // Similar to Dijkstra but we use distance instead of cost
 
 void A_star::ImplementList(int StartPoint,int EndPoint){
         StoredPath.clear();

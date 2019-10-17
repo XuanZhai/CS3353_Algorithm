@@ -12,11 +12,10 @@ DFS_iter::DFS_iter(/* args */){}
 void DFS_iter::ImplementList(int StartPoint ,int EndPoint){
     
     RunTime = 0;
-    PathFounded = 0;
     StoredPath.clear();
     StoredExploredPath.clear();
 
-     auto t1 = chrono::high_resolution_clock::now();
+     auto Start = chrono::high_resolution_clock::now();
      vector<int> Path;
      stack<vector<int>> newque; 
 
@@ -36,9 +35,8 @@ void DFS_iter::ImplementList(int StartPoint ,int EndPoint){
             temp.push_back(Path.at(i));
 
             StoredPath = temp;
-            PathFounded++;
-            auto t2 = chrono::high_resolution_clock::now();
-            RunTime = chrono::duration<double, nano>(t2-t1).count();  // high_solution_clock reference:
+            auto End = chrono::high_resolution_clock::now();
+            RunTime = chrono::duration<double>(End-Start).count();  // high_solution_clock reference:
         
             return;
         }
@@ -67,11 +65,10 @@ bool DFS_iter::FindVisit(int target, vector<int>& path){
 void DFS_iter::ImplementMatrix(int StartPoint ,int EndPoint){
 
     RunTime = 0;
-    PathFounded = 0;
     StoredPath.clear();
     StoredExploredPath.clear();
 
-    auto t1 = chrono::high_resolution_clock::now();
+    auto Start = chrono::high_resolution_clock::now();
     vector<int> Path;
     stack<vector<int>> newque; 
 
@@ -91,9 +88,8 @@ void DFS_iter::ImplementMatrix(int StartPoint ,int EndPoint){
             temp.push_back(Path.at(i));
 
             StoredPath = temp;
-            PathFounded++;
-            auto t2 = chrono::high_resolution_clock::now();
-            RunTime = chrono::duration<double, nano>(t2-t1).count();  // high_solution_clock reference:
+            auto End = chrono::high_resolution_clock::now();
+            RunTime = chrono::duration<double>(End - Start).count();  // high_solution_clock reference:
         
             return;
         }
