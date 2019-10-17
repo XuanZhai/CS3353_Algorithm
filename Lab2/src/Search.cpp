@@ -11,8 +11,8 @@ using namespace std;
 
 Search::Search(){
     FileType = 3;
-    AlgorithmName = "BFS-Recursive";          // We set the first algorithm
-    newBase = new BFS_recu();
+    AlgorithmName = "DFS-Recursive";          // We set the first algorithm
+    newBase = new DFS_recu();
     GraphName = "NULL";
 
     vector<double> temptable;
@@ -46,7 +46,11 @@ void Search::Execute(int src, int dest){
         newBase->SetWeight(WeightGraph);               // Pass graphes to the SearchBase
         newBase->SetDistance(DistanceGraph);
         newBase->ImplementList(src, dest);
-        newBase->FillSummaryTable(ListSummaryTable, AlgorithmName);
+        //if(AlgorithmName == "DFS-Recursive"){
+      //  newBase->FindCostOfPath();
+      //  newBase->FindDistanceOfPath();
+     //   }
+     //   newBase->FillSummaryTable(ListSummaryTable, AlgorithmName);
     }
     else if(FileType == 1){
         GraphName = "Matrix";
@@ -54,7 +58,11 @@ void Search::Execute(int src, int dest){
         newBase->SetWeight(WeightGraph);
         newBase->SetDistance(DistanceGraph);
         newBase->ImplementMatrix(src, dest);       // We have an implementlist and an implementmatrix
-        newBase->FillSummaryTable(MatrixSummaryTable, AlgorithmName); 
+      //  if(AlgorithmName == "DFS-Recursive"){
+      //  newBase->FindCostOfPath();
+      //  newBase->FindDistanceOfPath();
+     //   }
+      //  newBase->FillSummaryTable(MatrixSummaryTable, AlgorithmName); 
     }
     else{
         cout << "Error Occured On Execute..." << endl;
@@ -74,6 +82,11 @@ void Search::Stats(){
     cout << "Search from " << BeginPoint << " to " << EndPoint << endl;
     newBase->FindCostOfPath();
     newBase->FindDistanceOfPath();
+    if(GraphName == "List")
+    newBase->FillSummaryTable(ListSummaryTable, AlgorithmName);
+    else
+    newBase->FillSummaryTable(MatrixSummaryTable, AlgorithmName);
+    
     newBase->PrintPathData();        // Show result to the screen
 }
 
@@ -121,8 +134,8 @@ void Search::Select(int SearchAl){
     }
     case 2:{
         delete newBase;
-        newBase = new DFS_recu();
-        AlgorithmName = "DFS-Recursive";
+        newBase = new BFS_recu();
+        AlgorithmName = "BFS-Recursive";
         break;
     }
     case 3:{
@@ -134,13 +147,13 @@ void Search::Select(int SearchAl){
     case 4:{
         delete newBase;
         newBase = new BFS_iter();
-        AlgorithmName = "BFS-iterative";
+        AlgorithmName = "BFS-Iterative";
         break;
     }
     case 5:{
         delete newBase;
-        newBase = new BFS_iter();
-        AlgorithmName = "BFS-Iterative";
+        newBase = new DFS_iter();
+        AlgorithmName = "DFS-Recursive";
         break;
     }
     default:{
