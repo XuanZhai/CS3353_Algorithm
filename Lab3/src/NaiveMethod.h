@@ -9,7 +9,8 @@ class NaiveMethod: public FindPathBase {
       
 public: 
       void Implement() override;
-      std::vector<int> FindShortestPath(int, int, std::vector<int>, int);
+      double FindPathDistance(std::vector<int>&);
+      void ShortCompare(std::vector<int>&);
 };
 
 

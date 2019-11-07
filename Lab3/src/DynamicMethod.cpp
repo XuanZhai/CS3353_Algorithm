@@ -4,95 +4,78 @@
 using namespace std;
 
 
-void DynamicMethod::SetTable(){
-    for(int i = 0; i < GraphSize + 1; i++){
-        vector<vector<int>> bigvector;
-        for(int j = 0; j < GraphSize + 1; j++){
-            vector<int> smallvector;
-            bigvector.push_back(smallvector);
+ void DynamicMethod::Implement(){
+    unsigned long int pastnode = 1;           // Number of branch
+    unsigned long int travelstart = 0;
+    for(int a = 2; a < GraphSize; a++){
+        pastnode = pastnode * a + 1;          //  Number of child * number of branch in each child + head. Choose unsigned long int because pastnode will increase factorially
+    }
+    Totaltraveled = new int[pastnode];     // Create a array to store those branches
+    vector<int> Untraveled;
+    for (int i = 0; i < GraphSize; i++){
+        Untraveled.push_back(i + 1);       // Untravel Nodes 1,2,3......
+    }
+
+    cout << "Begin Dynamic Method..." << endl;
+
+    chrono::high_resolution_clock::time_point Start = chrono::high_resolution_clock::now(); // High_resolution_close reference: http://www.cplusplus.com/reference/chrono/high_resolution_clock/now/
+    ShortestDistance =  FindShortestPath(1, Untraveled, travelstart);         
+    chrono::high_resolution_clock::time_point End = chrono::high_resolution_clock::now();
+    RunTime = chrono::duration<double>(End-Start);       
+
+    Untraveled.erase(Untraveled.begin());
+    ShortestPath.push_back(1);                // Start at 1
+    FindNodes(0, pastnode - 1, Untraveled);   // Find the exact path for the shortest distance
+    ShortestPath.push_back(1);                // End at 1
+    delete Totaltraveled;
+}
+
+
+double DynamicMethod::FindShortestPath(int End, std::vector<int> untraveled, unsigned long int& travelnum){  // Dynamic method reference
+    for(int a = 0; a < untraveled.size(); a++){                                             //https://www.geeksforgeeks.org/travelling-salesman-problem-set-1/ 
+        if(untraveled.at(a) == End){
+            untraveled.erase(untraveled.begin() + a);
+            break;
         }
-        memotable.push_back(bigvector);
+    }
+
+    if(untraveled.size() == 0){
+        return Position.at(End - 1).at(0);
+    }
+    else{
+        double totaldist = INT_MAX;
+        int node = 0;
+        for(int i = 0; i < untraveled.size(); i++){
+            double tempdist = FindShortestPath(untraveled.at(i), untraveled,  travelnum);
+            if(totaldist > ( tempdist + Position.at(untraveled.at(i) - 1).at(End - 1) )){
+                totaldist = ( tempdist + Position.at(untraveled.at(i) - 1).at(End - 1) );
+                node = untraveled.at(i);
+            }
+        }
+        Totaltraveled[travelnum] = node;        // Push the shortest point of the branch to the array
+        travelnum++;                            // Increment how many branch achieved so far
+        return totaldist;
     }
 }
 
 
-void DynamicMethod::Implement(){
-
-    SetTable();
-
-    vector<int> visited;
-    for (int j = 0; j < GraphSize + 1; j++){
-        visited.push_back(false);
+void DynamicMethod::FindNodes(int Start, int End, std::vector<int>& Remain){
+    if(Remain.size() == 0){
+        return;
     }
-    visited.at(0) = true;
-
-    for (int i = 0; i < Graph.at(1).size(); i++){
-        vector <int> temp1 = FindShortestPath(1, Graph.at(1).at(i), visited, GraphSize);
-        if(temp1.size() > 1){
-            vector <int> temp2;
-            temp2.push_back(Graph.at(1).at(i));
-            temp2.push_back(1);
-            double tempDistance = FindPathDistance(temp1) + FindPathDistance(temp2);
-            if(tempDistance <= ShortestDistance){
-                temp1.push_back(1);
-                ShortestPath = temp1;
-                ShortestDistance = tempDistance;
+    else{
+        int head = Totaltraveled[End];         // Find the head
+        ShortestPath.push_back(head);          // Head becomes the previous achieved point
+        int i;
+        for(i = 0; i < Remain.size(); i++){
+            if(Remain.at(i) == head){
+                Remain.erase(Remain.begin() + i);   // If visited, erased the point
+                break;
             }
         }
+        int Newstart =  Start + (End - Start) / (Remain.size() + 1) * i;
+        int Newend = Newstart + (End - Start)/ (Remain.size() + 1) - 1;   // Reset the start and end part of the segment
+        FindNodes(Newstart, Newend, Remain);   
+        return;
     }
-}
-
-
-vector<int> DynamicMethod::FindShortestPath(int Start, int End, vector<int> visit, int Listlength){
-    visit.at(Start) = true;
-    visit.at(End) = true;
-    vector<int> newPath;
-
-     if(memotable.at(Start).at(End).size() == Listlength){
-         bool Ontable = true;
-         for(int a = 0; a < memotable.at(Start).at(End).size(); a++){
-             if(visit.at(memotable.at(Start).at(End).at(a)) == true)
-                Ontable = false;
-        if(Ontable == true)
-            return memotable.at(Start).at(End);
-     }
-     }
-
-    for(int i = 0; i < Graph.at(Start).size(); i++){
-        if(End == Graph.at(Start).at(i) && Listlength == 2){
-            newPath.push_back(Start);
-            newPath.push_back(End);
-             memotable.at(Start).at(End) = newPath;
-            return newPath;
-        }
-    }
-
-    int dist = INT_MAX;
-    vector<int> temp1;
-
-    for(int j = 0; j < Graph.at(Start).size(); j++){
-
-        if(visit[Graph.at(Start).at(j)] == false){    
-            temp1 =  FindShortestPath(Graph.at(Start).at(j), End, visit, (Listlength - 1));
-
-            if(temp1.size() > 1){
-                memotable.at(Graph.at(Start).at(j)).at(End) = temp1;
-                vector<int> temp2;
-                temp2.push_back(Start);
-                temp2.push_back(Graph.at(Start).at(j));
-
-                if ( ((FindPathDistance(temp1) +  FindPathDistance(temp2)) < dist)){
-                    newPath = temp1;
-                    dist = (FindPathDistance(temp1) +  FindPathDistance(temp2));
-                }
-            }
-        }
-    }
-
-    newPath.insert(newPath.begin() , Start);
-
-    if(newPath.size() > 1)
-    memotable.at(Start).at(End) = newPath;
-
-    return newPath;
 }

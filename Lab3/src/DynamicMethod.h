@@ -9,10 +9,11 @@
 class DynamicMethod: public FindPathBase {
       
 public: 
-      void SetTable();
-      std::vector<std::vector<std::vector<int>>> memotable; 
+      std::vector<int> totaltraveled; 
       void Implement() override;
-      std::vector<int> FindShortestPath(int, int, std::vector<int>, int);
+      double FindShortestPath(int, std::vector<int>, unsigned long int&);
+      void FindNodes(int, int, std::vector<int>&);
+      int* Totaltraveled;
 
 };
 
