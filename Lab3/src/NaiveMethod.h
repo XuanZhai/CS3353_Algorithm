@@ -5,7 +5,7 @@
 
 
 
-class NaiveMethod: public FindPathBase {
+class NaiveMethod: public FindPathBase {      // Interited from the base
       
 public: 
       void Implement() override;

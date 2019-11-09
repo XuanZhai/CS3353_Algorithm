@@ -9,7 +9,7 @@ FindPath::FindPath(){
 
 
 void FindPath::Load(vector<vector<double>>& inputPosition){
-     CurrentMethod->SetPosition(inputPosition);        
+     CurrentMethod->SetPosition(inputPosition);                  // Set the Position table from main
 }
 
 
@@ -20,16 +20,9 @@ void FindPath::Execute(){
 }
 
 
-
-
 void FindPath::Select(){
      delete CurrentMethod;
      CurrentMethod = new DynamicMethod();                                                 // Switch to Dynamic Programming
-}
-
-
-void FindPath::Save(){
-    
 }
 
 

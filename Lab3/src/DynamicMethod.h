@@ -3,18 +3,14 @@
 
 
 #include "FindPathBase.h"
+#include "TSPTable.h"
 
 
 
 class DynamicMethod: public FindPathBase {
       
 public: 
-      std::vector<int> totaltraveled; 
       void Implement() override;
-      double FindShortestPath(int, std::vector<int>, unsigned long int&);
-      void FindNodes(int, int, std::vector<int>&);
-      int* Totaltraveled;
-
 };
 
 

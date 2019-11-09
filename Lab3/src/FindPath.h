@@ -2,6 +2,7 @@
 #define FINDPATH_H
 
 
+#include <chrono>
 #include "Algorithm.h"
 #include "FindPathBase.h"
 #include "NaiveMethod.h"
@@ -16,11 +17,10 @@ public:
     FindPathBase* CurrentMethod;
     std::vector<std::vector<double>> Position;
 
-    FindPath(/* args */);
+    FindPath();
     void Load(std::vector<std::vector<double>>&) override;
     void Execute() override;
     void Select() override;
-    void Save() override;
     ~FindPath();
 };
 

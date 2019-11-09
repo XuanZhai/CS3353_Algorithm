@@ -10,8 +10,8 @@ void FindPathBase::SetPosition(vector<vector<double>>& inputPosition){
 
 
 void FindPathBase::PrintOutput(){
-     cout << "short distance " << ShortestDistance << endl;
-     cout << "short path: ";
+     cout << "The shortest distance is: " << ShortestDistance << endl;
+     cout << "The shortest path is: ";
      for(int i = 0; i < ShortestPath.size(); i++)
      cout << ShortestPath.at(i) << " ";
      cout << endl;

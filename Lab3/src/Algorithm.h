@@ -13,7 +13,6 @@
      virtual void Load(std::vector<std::vector<double>>&) = 0;
      virtual void Execute() = 0;
      virtual void Select() = 0;
-     virtual void Save() = 0;
  };
 
 

@@ -4,12 +4,11 @@
 using namespace std;
 
 void NaiveMethod::Implement(){               // Naive Solution
-    int a = 0;
     cout << "Begin Naive Method..." << endl;
     chrono::high_resolution_clock::time_point Start = chrono::high_resolution_clock::now(); //High_resolution_close reference: http://www.cplusplus.com/reference/chrono/high_resolution_clock/now/
 
-    bool visited[GraphSize];
-    int  lastloop[GraphSize];
+    bool visited[GraphSize];                    // An array to store visit trigger for each number
+    int  lastloop[GraphSize];                  // And array to store the last the number for the for loop, so if a number is poped back, we can keep on the last number's loop
     for (int i = 0; i < GraphSize; i++){
         visited[i] = false;
         lastloop[i] = 0;
@@ -21,7 +20,7 @@ void NaiveMethod::Implement(){               // Naive Solution
     int i = 0;
     int newNum = 0;
 
-    while(CurrentPath.size() != 0){                                     // Use while loop to go through all the permutation of points
+    while(CurrentPath.size() != 0){                                     // Use while loop to go through all the permutations of points
         int last = CurrentPath.at(CurrentPath.size() - 1);
         i = lastloop[last - 1];
 
@@ -33,7 +32,6 @@ void NaiveMethod::Implement(){               // Naive Solution
                     CurrentPath.push_back(1);
                     ShortCompare(CurrentPath);
                     CurrentPath.pop_back();
-                    a++;
                 }
 
                 else if( visited[newNum - 1] == false ){                // If a node is not visited,  push to the list
@@ -46,16 +44,16 @@ void NaiveMethod::Implement(){               // Naive Solution
 
         CurrentPath.pop_back();
 
-        visited[last - 1 ] = false;
+        visited[last - 1 ] = false;   // If run through all the numbers at the current position, pop it and step back to change the last digit 
         lastloop[last - 1] = 0;
     }
       chrono::high_resolution_clock::time_point End = chrono::high_resolution_clock::now();
-      RunTime = chrono::duration<double, milli>(End-Start);  // high_solution_clock reference:
+      RunTime = chrono::duration<double, std::milli>(End-Start);  // high_solution_clock reference:
 
 }
 
 
-void NaiveMethod::ShortCompare(vector<int>& newPath){            // Compare a new path with the shortest path
+void NaiveMethod::ShortCompare(vector<int>& newPath){             // Compare a new path with the shortest path
     double tempDistance = FindPathDistance(newPath);              // If the cost is smaller, update the path
     if(tempDistance < ShortestDistance){
         ShortestDistance = tempDistance;
