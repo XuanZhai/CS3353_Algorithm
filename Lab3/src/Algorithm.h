@@ -6,11 +6,15 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
+#include <fstream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
 
  class Algorithm{
 
  public:
-     virtual void Load(std::vector<std::vector<double>>&) = 0;
+     virtual void Load(std::string) = 0;
      virtual void Execute() = 0;
      virtual void Select() = 0;
  };

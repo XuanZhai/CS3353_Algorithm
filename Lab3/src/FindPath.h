@@ -15,10 +15,9 @@ private:
 
 public:
     FindPathBase* CurrentMethod;
-    std::vector<std::vector<double>> Position;
 
     FindPath();
-    void Load(std::vector<std::vector<double>>&) override;
+    void Load(std::string) override;
     void Execute() override;
     void Select() override;
     ~FindPath();

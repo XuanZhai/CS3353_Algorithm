@@ -109,6 +109,7 @@ void TSPTable::CompareNode(TSPTableNode& newNode, std::vector<TSPTableNode>& Lis
                     break;
                 }
             }
+
             if(smalltrigger == true){
                 if(newNode.Total < List.at(i).Total){
                     List.at(i) = newNode;                          // If the newnode has shorter distance, update the node on the lower layer
@@ -119,12 +120,10 @@ void TSPTable::CompareNode(TSPTableNode& newNode, std::vector<TSPTableNode>& Lis
                 }
             }
         }
-
-
-
     }
+
     if(bigtrigger == true){
-    List.push_back(newNode);                                // If there is no such node, we push the newnode to the last
+        List.push_back(newNode);                                // If there is no such node, we push the newnode to the last
     }
 }
 
