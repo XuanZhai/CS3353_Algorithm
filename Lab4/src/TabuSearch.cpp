@@ -11,9 +11,11 @@ TabuSearch::TabuSearch(){
 
 void TabuSearch::Implement(){                                          // Tabu Search Solution
     cout << "Begin Tabu Search Method" << endl;
+	ofstream outfile("Tabu.txt");
+    ofstream outglobal("TabuGlobal.txt");
     chrono::high_resolution_clock::time_point Start = chrono::high_resolution_clock::now(); //High_resolution_close reference: http://www.cplusplus.com/reference/chrono/high_resolution_clock/now/
     FindRandom();
-    for(int a = 0; a < 150; a++){                                     // Number of Iteration / Generation
+    for(int a = 0; a < 200; a++){                                     // Number of Iteration / Generation
         if(ReShuffle >= 50){                                     
             FindRandom();                                            // Jump out of local minimum and reset the path
             ReShuffle = 0;
@@ -52,10 +54,13 @@ void TabuSearch::Implement(){                                          // Tabu S
             ReShuffle++;
         }
         //if(ShortestPath.size() > 13)
-        cout << a+1 <<": Tabu Search return best " << LocalShortDistance << endl;                    // We set the distance as the fitness
+    outfile << LocalShortDistance << endl;                    // We set the distance as the fitness
+    outglobal << ShortestDistance << endl;
     }
     chrono::high_resolution_clock::time_point End = chrono::high_resolution_clock::now();
     RunTime = chrono::duration<double, std::milli>(End-Start);                              // high_solution_clock reference:
+    outfile.close();
+    outglobal.close();
 
 }
 

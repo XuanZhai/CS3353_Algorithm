@@ -12,6 +12,7 @@
 #include <stdlib.h> 
 #include <time.h> 
 #include <bits/stdc++.h>                                                   // Shuffle
+#include <fstream>
 typedef std::pair<std::vector<int>, double> my_pair;
 using namespace std;
 

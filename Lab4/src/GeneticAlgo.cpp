@@ -4,14 +4,15 @@
 
 using namespace std;
 
- void GeneticAlgo::Implement(){
-     cout << "\nBegin Genetic Method" << endl;
-     chrono::high_resolution_clock::time_point Start = chrono::high_resolution_clock::now(); //High_resolution_close reference: http://www.cplusplus.com/reference/chrono/high_resolution_clock/now/
-     size_population = 10;
-     generations = 150;
-     mutation_rate = 5;
-     real_size_population = 0;
-     FindInitial();
+ void GeneticAlgo::Implement(){            // Partial referenced https://github.com/marcoscastro/tsp_genetic/blob/master/src/tsp.cpp
+    cout << "\nBegin Genetic Method" << endl;
+	ofstream outfile("Genetic.txt");
+    chrono::high_resolution_clock::time_point Start = chrono::high_resolution_clock::now(); //High_resolution_close reference: http://www.cplusplus.com/reference/chrono/high_resolution_clock/now/
+    size_population = 15;
+    generations = 200;
+    mutation_rate = 4;
+    real_size_population = 0;
+    FindInitial();
     
     for(int i = 0; i < generations; i++){
         int old_size_population = real_size_population;
@@ -57,10 +58,11 @@ using namespace std;
 		ShortestPath = vec;
 		ShortestDistance = population[0].second;
 		//if(ShortestPath.size() > 13)
-		cout << i+1 <<": Genetic Search return best " << ShortestDistance << endl;
+		outfile << ShortestDistance << endl;
     }
     chrono::high_resolution_clock::time_point End = chrono::high_resolution_clock::now();
     RunTime = chrono::duration<double, std::milli>(End-Start);              // High_solution_clock
+	outfile.close();
     
  }
 
@@ -223,8 +225,8 @@ void GeneticAlgo::Mutation(std::vector<int>& child1, std::vector<int>& child2){ 
 	int mutation = rand() % 100 + 1;                                                                        // Random number in [1,100]
 	if(mutation <= mutation_rate){                                                                        // Checks if the random number <= mutation rate	
 		int index_gene1, index_gene2;
-		index_gene1 = rand() % (GraphSize - 1);
-		index_gene2 = rand() % (GraphSize - 1);		
+		index_gene1 = rand() % (GraphSize - 2) + 1;
+		index_gene2 = rand() % (GraphSize - 2) + 1;		
 
 		int aux = child1[index_gene1];																	// makes for child1
 		child1[index_gene1] = child1[index_gene2];
