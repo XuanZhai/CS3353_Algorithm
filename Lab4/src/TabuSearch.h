@@ -2,7 +2,8 @@
 #define TABUSEARCH_H
 
 #include "FindPathBase.h"
-#include <bits/stdc++.h> 
+#include <cstdlib>      // std::rand, std::srand
+#include <algorithm>    // std::random_shuffle
 #include <fstream>
 
 
